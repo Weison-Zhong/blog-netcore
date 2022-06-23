@@ -110,3 +110,4 @@ E:\code\project\Blog2022\netcore\obj\Release\net6.0\refint\Blog2022-netcore.dll
 E:\code\project\Blog2022\netcore\obj\Release\net6.0\Blog2022-netcore.pdb
 E:\code\project\Blog2022\netcore\obj\Release\net6.0\Blog2022-netcore.genruntimeconfig.cache
 E:\code\project\Blog2022\netcore\obj\Release\net6.0\ref\Blog2022-netcore.dll
+E:\code\project\Blog2022\netcore\bin\Release\net6.0\keys.json
