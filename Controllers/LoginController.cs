@@ -33,8 +33,8 @@ namespace Blog2022_netcore.Controllers
                 });
             }
             string decodePassword = MD5Helper.MD5Encrypt32(loginParams.password);
-            var administrator = await _context.Administrators.Include(x => x.Role)
-                                    .ThenInclude(x => x.Apis).ThenInclude(x => x.Api).ThenInclude(x => x.Menu).ThenInclude(x => x.ParentMenu)
+            var administrator = await _context.Administrators.Include(x => x.Role).ThenInclude(x => x.Apis).ThenInclude(x => x.Api).ThenInclude(x => x.Menu).ThenInclude(x => x.ParentMenu).ThenInclude(x=>x.Icon)
+                                        .Include(x => x.Role).ThenInclude(x => x.Apis).ThenInclude(x => x.Api).ThenInclude(x => x.Menu).ThenInclude(x=>x.Icon)
                                     .FirstOrDefaultAsync(x => x.Name == loginParams.username && x.Password == decodePassword);
             if (administrator == null)
             {

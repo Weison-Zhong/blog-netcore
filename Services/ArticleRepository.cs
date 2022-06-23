@@ -78,9 +78,10 @@ namespace Blog2022_netcore.Services
                 queryExpression = queryExpression.Where(x => x.Title.Contains(search) || x.Content.Contains(search));
             }
             //fen页
-            queryExpression = queryExpression.Skip(parameters.PageSize * (parameters.PageNumber - 1))// 跳过
-                .Take(parameters.PageSize)//跳过后取多少
-                .OrderByDescending(x => x.Weight); //按权重倒序
+            queryExpression = queryExpression
+                .OrderByDescending(x => x.Weight) //按权重倒序
+                .Skip(parameters.PageSize * (parameters.PageNumber - 1))// 跳过
+                .Take(parameters.PageSize);//跳过后取多少
             var articles = await queryExpression.ToListAsync(); //这一行才是真正查询数据库
 
 

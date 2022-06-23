@@ -37,7 +37,7 @@ namespace Blog2022_netcore.Services
 
         public async Task<IEnumerable<Guest>> GetGuests(GuestQueryParameters guestQueryParameters)
         {
-            return await _context.Guest.Skip(guestQueryParameters.PageSize * (guestQueryParameters.PageNumber - 1))
+            return await _context.Guest.OrderByDescending(x => x.CreateDateTime).Skip(guestQueryParameters.PageSize * (guestQueryParameters.PageNumber - 1))
                 .Take(guestQueryParameters.PageSize).ToListAsync();
         }
 
